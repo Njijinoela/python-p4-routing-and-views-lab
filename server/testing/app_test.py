@@ -53,24 +53,24 @@ class TestApp:
     def test_math_add(self):
         '''adds parameters in "/math/" resource when operation is "+".'''
         response = app.test_client().get('/math/5/+/5')
-        assert(response.data.decode() == '10')
+        assert(response.data.decode() == '<p>The result of 5 + 5 is: 10</p>')
 
     def test_math_subtract(self):
         '''subtracts parameters in "/math/" resource when operation is "-".'''
         response = app.test_client().get('/math/5/-/5')
-        assert(response.data.decode() == '0')
+        assert(response.data.decode() == '<p>The result of 5 - 5 is: 0</p>')
 
     def test_math_multiply(self):
         '''multiplies parameters in "/math/" resource when operation is "*".'''
         response = app.test_client().get('/math/5/*/5')
-        assert(response.data.decode() == '25')
+        assert(response.data.decode() =='<p>The result of 5 * 5 is: 25</p>')
 
     def test_math_divide(self):
         '''divides parameters in "/math/" resource when operation is "div".'''
         response = app.test_client().get('/math/5/div/5')
-        assert(response.data.decode() == '1.0')
+        assert(response.data.decode() == '<p>The result of 5 div 5 is: 1.0</p>')
     
     def test_math_modulo(self):
         '''finds remainder of parameters in "/math/" resource when operation is "%".'''
         response = app.test_client().get('/math/5/%/5')
-        assert(response.data.decode() == '0')
+        assert(response.data.decode() == '<p>The result of 5 % 5 is: 0</p>')
